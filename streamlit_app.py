@@ -85,30 +85,26 @@ st.markdown("""
 with st.sidebar:
     st.markdown("### 📄 关于 MarkItDown")
     st.markdown("""
-    **MarkItDown** 是由微软开源的文档转换工具，能够将多种常见格式转换为 Markdown 文本。
+    **MarkItDown** 是由微软开源的强大文档转换引擎，能够将多种常见格式转换为标准的 Markdown 文本。
     
-    **支持的文件格式包括：**
+    **支持的转换格式包括：**
     - **文档**：`.docx`, `.pdf`, `.html`, `.htm`, `.txt`, `.md`
-    - **演示文稿**：`.pptx`
+    - **幻灯**：`.pptx`
     - **表格**：`.xlsx`, `.xls`, `.csv`
-    - **其他**：`.json`, `.xml`, `.mp3`, `.wav` (语音转文字)
+    - **数据**：`.json`, `.xml`
+    - **音频**：`.mp3`, `.wav` (将自动进行语音文字识别)
     """)
     st.divider()
     
-    st.markdown("### 🚀 部署到 GitHub & Streamlit")
+    st.markdown("### 💡 使用提示")
     st.markdown("""
-    想在网上随时使用这个工具？只需以下几步即可通过 GitHub 免费部署成公网网站：
-    
-    1. **创建 GitHub 仓库**：在 GitHub 上新建一个公开仓库，例如命名为 `markdown-converter`。
-    2. **推送代码**：将本项目根目录下的所有文件推送至该仓库的主分支 (`main`)。
-    3. **关联 Streamlit**：
-       - 打开 [Streamlit Community Cloud](https://share.streamlit.io/) 并注册/登录。
-       - 点击 **"New app"**，选择您刚刚创建的 GitHub 仓库。
-       - 设置 Main file path 为 `streamlit_app.py`。
-       - 点击 **"Deploy!"** 即可发布，您的转换工具将成为可公开访问的在线网站！
+    1. 点击或拖拽一个或多个文件到上传区域。
+    2. 等待转换完成。
+    3. 在下方左侧列表选择文件进行预览，或者一键打包下载全部 Markdown 文件。
     """)
     st.divider()
     st.markdown("<p style='text-align: center; color: #888;'>Powered by Microsoft MarkItDown & Streamlit</p>", unsafe_allow_html=True)
+
 
 # 主页面 Hero 区
 st.markdown('<h1 class="hero-title">Markdown 文档转换工具</h1>', unsafe_allow_html=True)
