@@ -39,34 +39,62 @@ A web-based tool powered by Microsoft **MarkItDown** for converting files (PDF, 
 ---
 
 
-## 🌟 Features / 核心亮点
+## 📂 Supported Formats & Capabilities / 支持的转换类型
 
 ### English
-- **Batch Upload & Convert**: Drag and drop multiple files to convert them all at once.
-- **Rich Format Support**:
-  - **Documents**: `.pdf`, `.docx`, `.html`, `.htm`, `.txt`, `.md`
-  - **Spreadsheets**: `.xlsx`, `.xls`, `.csv` (Converts sheet data into clean Markdown tables!)
-  - **Presentations**: `.pptx` (Linearizes slide layouts)
-  - **Audio (Speech-to-Text)**: `.mp3`, `.wav` (Transcribes audio into written Markdown notes)
-  - **Structured Data**: `.json`, `.xml`
-  - **Archives**: `.zip` (Extracts and batch converts supported contents inside)
-- **Live Preview**: Dual-panel preview supporting both rendered HTML layout and raw Markdown code.
-- **Download Flexibly**: Download converted files individually, or grab them all in a single `.zip` package.
-- **Privacy & Free**: 100% open source, running entirely on secure serverless environments.
+The conversion engine is fully powered by Microsoft MarkItDown (v0.1.5). The supported formats include:
+- **Documents**: 
+  - `.docx` (Word): Extracts text, headings, lists, bold/italic formatting, and hyper-links.
+  - `.pdf` (Portable Document): Extracts readable text layers and simple structured layout tables.
+  - `.html`/`.htm` (Web page): Extracts clean article content, discarding sidebars and navigation panels.
+  - `.txt`/`.md`: Direct markdown formatting optimization.
+- **Spreadsheets**:
+  - `.xlsx`/`.xls`/`.csv` (Excel): Intelligently reads sheet grids and formats them into clean markdown tables.
+- **Presentations**:
+  - `.pptx` (PowerPoint): Transcribes text content from slide text boxes slide-by-slide.
+- **Structured Data**:
+  - `.json`/`.xml`: Beautifies and outputs clean formatted structured layouts.
+- **Audio Files**:
+  - `.mp3`/`.wav`: Integrates standard speech-to-text API to automatically transcribe spoken words into structured Markdown notes.
+- **Archives**:
+  - `.zip`: Decompresses on the fly and recursively processes all supported files within.
 
 ### 中文
-- **批量拖拽上传**：支持一次性拖拽上传多个不同类型的文件进行队列化批量转换。
-- **全格式支持**：
-  - **文档**：`.pdf` (电子版)、`.docx`、`.html`、`.txt`
-  - **表格转换**：`.xlsx`、`.xls`、`.csv`，智能识别表格并排版为整齐的 **Markdown 表格**。
-  - **幻灯片**：`.pptx` 提取文本。
-  - **音频识别**：`.mp3`、`.wav`，内置语音识别，自动将会议或录音转换为 **Markdown 文字纪要**。
-  - **其他**：`.json`、`.xml` 数据整理，`.zip` 压缩包自动解压并批量转换。
-- **双标签对照预览**：提供“渲染效果预览”和“Markdown 源码”双标签页对照，效果一目了然。
-- **打包一键下载**：支持单个文件单独下载，或点击 “📦 一键打包下载全部 (ZIP)”。
-- **开源安全**：完全透明的开源代码，不保留用户上传的文件，转换即用，安全可靠。
+本项目完全采用微软官方 `Microsoft MarkItDown` 核心转换库。支持的解析能力包含：
+- **文本与文档**：
+  - **Word** (`.docx`)：完美转换段落文本，保留标题分级、列表、加粗/倾斜和超链接。
+  - **PDF** (`.pdf`)：自动识别并提取其中的纯文本段落与简单的图表结构。
+  - **网页** (`.html`/`.htm`)：智能剥离网页两侧的导航栏与广告栏，仅提取核心正文。
+  - **文本文档** (`.txt`/`.md`)：纯文本自动清理。
+- **电子表格 (Excel)**：
+  - **Excel/CSV** (`.xlsx`/`.xls`/`.csv`)：自动识别合并单元格和行数据，将其规整排版为标准的 **Markdown 表格**。
+- **演示文稿 (PPT)**：
+  - **PowerPoint** (`.pptx`)：按幻灯片张数线性化排版其中的所有文本框与标题。
+- **数据文件**：
+  - **JSON/XML** (`.json`/`.xml`)：将其以结构化文本的排版美化输出。
+- **音频转录**：
+  - **语音音频** (`.mp3`/`.wav`)：内置语音识别网关，可自动将会议发言或录音听写转为 **Markdown 会议纪要**。
+- **打包文件**：
+  - **ZIP 压缩包** (`.zip`)：自动提取解压包内的所有匹配文件进行静默批量转换。
 
 ---
+
+## ⚠️ Known Limitations / 使用限制说明
+
+### English
+- **Free Cloud Server Memory**: The app is hosted on Streamlit Community Cloud (with a **1GB RAM** quota). Avoid uploading extremely large files (e.g., >50MB PDFs or long movies) to prevent container crash and restart.
+- **No OCR for Scanned Files**: In the default cloud environment, Microsoft MarkItDown is not configured with high-fidelity paid OCR engines (like Azure Document Intelligence). Therefore, scanned PDFs or image-only documents containing no text layer cannot be parsed. Please use native digital documents.
+- **Audio Length**: The default speech recognition API has a time limit. It is recommended to upload audio clips under 5 minutes for stable transcription.
+- **Layout Simplification**: Complex layouts (multi-column newsletters, custom drawings, nested groups, text boxes overlap) will be simplified to a linear, clean text flow.
+
+### 中文
+- **服务器内存限制**：由于本工具免费部署于 Streamlit 共享云端（每个容器配额仅 **1GB RAM**），请勿一次性上传过大文件（如超过 50MB 的 PDF 或长视频），否则容器可能会因为内存溢出而导致网页崩溃并自动重启。
+- **纯图片/扫描件识别限制**：微软 `markitdown` 进行高精度 OCR 文字提取需要 Azure Document Intelligence 密钥或本地加载大型 OCR 库。在目前云端免费默认配置下，**无法对“纯图片”形式的扫描 PDF 或拍照截图提取出文字**。建议您使用原生电子导出的文档。
+- **语音识别时长**：默认使用的免费语音识别 API 对音频长度有一定限制。为保证稳定性，建议上传 5 分钟以内的录音音频。
+- **排版降维简化**：因为最终输出目标是 Markdown 纯文本，任何极其复杂的排版（如多栏排版、手绘图表、重叠文本框）都会被“拍扁”简化为线性的段落文字或表格。
+
+---
+
 
 ## 💻 Local Running / 本地运行
 
