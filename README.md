@@ -1,81 +1,78 @@
-# 📄 Markdown 文档转换工具 (网页版)
+# 📄 Markdown Document Converter (Web Edition) / Markdown 文档转换工具 (网页版)
 
-基于微软开源的 **Microsoft MarkItDown** 技术构建的文档转 Markdown 网页版工具。支持上传一个或多个不同格式的文件，一键转换为 Markdown，并提供实时预览、单文件下载及打包 ZIP 下载功能。
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://adrianzhou20260105-max-markdown-converter-streamlit-app-6ej60u.streamlit.app/)
+[![GitHub license](https://img.shields.io/github/license/adrianzhou20260105-max/markdown-converter?style=flat-square)](https://github.com/adrianzhou20260105-max/markdown-converter)
+[![Built with Microsoft MarkItDown](https://img.shields.io/badge/Built%20with-Microsoft%20MarkItDown-blue?style=flat-square)](https://github.com/microsoft/markitdown)
 
----
+A web-based tool powered by Microsoft **MarkItDown** for converting files (PDF, Word, Excel, PowerPoint, Audio, etc.) to Markdown with real-time previews and batch downloads.
 
-## 🌟 功能特点
-
-- **多文件批量上传**：支持直接拖拽或点击上传多个文件。
-- **广泛的文件格式支持**：
-  - **文档**：`.pdf`, `.docx`, `.html`, `.htm`, `.txt`, `.md`
-  - **演示文稿**：`.pptx`
-  - **电子表格**：`.xlsx`, `.xls`, `.csv`
-  - **结构化/音频等其他文件**：`.json`, `.xml`, `.mp3`, `.wav` (语音转文字)
-- **实时效果预览**：提供“渲染效果预览”和“Markdown 源码”双标签页对照查看。
-- **灵活的下载选项**：支持单独下载某个转换后的 `.md` 文件，或一键打包下载全部转换文件的 `.zip` 压缩包。
-- **极其简便的部署**：已针对 Streamlit Community Cloud 进行优化，支持一键零成本部署到公网。
+基于微软开源 **Microsoft MarkItDown** 核心构建的文档转 Markdown 网页端工具。支持批量上传、实时渲染预览、单文件及打包 ZIP 下载，并且完全免费、开源。
 
 ---
 
-## 💻 本地运行
+## ⚡ Try It Online / 在线体验
 
-在本地运行该网页应用非常简单：
-
-1. **克隆或下载本项目** 到本地电脑。
-2. **进入项目目录**：
-   ```powershell
-   cd "D:\my_project\markdown格式转换"
-   ```
-3. **激活虚拟环境**（若您使用本项目自带的 `.venv`）：
-   ```powershell
-   .venv\Scripts\activate
-   ```
-4. **安装依赖**：
-   ```powershell
-   pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
-   ```
-5. **运行网页服务**：
-   ```powershell
-   streamlit run streamlit_app.py
-   ```
-6. 浏览器会自动打开以下地址：
-   ```text
-   http://localhost:8501
-   ```
+👉 **[https://adrianzhou20260105-max-markdown-converter-streamlit-app-6ej60u.streamlit.app/](https://adrianzhou20260105-max-markdown-converter-streamlit-app-6ej60u.streamlit.app/)**
 
 ---
 
-## 🚀 免费公网部署指南
+## 🌟 Features / 核心亮点
 
-此网页应用支持通过 **Streamlit Community Cloud** 免费部署至互联网，方便您在任何设备上随时访问和分享：
+### English
+- **Batch Upload & Convert**: Drag and drop multiple files to convert them all at once.
+- **Rich Format Support**:
+  - **Documents**: `.pdf`, `.docx`, `.html`, `.htm`, `.txt`, `.md`
+  - **Spreadsheets**: `.xlsx`, `.xls`, `.csv` (Converts sheet data into clean Markdown tables!)
+  - **Presentations**: `.pptx` (Linearizes slide layouts)
+  - **Audio (Speech-to-Text)**: `.mp3`, `.wav` (Transcribes audio into written Markdown notes)
+  - **Structured Data**: `.json`, `.xml`
+  - **Archives**: `.zip` (Extracts and batch converts supported contents inside)
+- **Live Preview**: Dual-panel preview supporting both rendered HTML layout and raw Markdown code.
+- **Download Flexibly**: Download converted files individually, or grab them all in a single `.zip` package.
+- **Privacy & Free**: 100% open source, running entirely on secure serverless environments.
 
-### 第一步：将代码推送到 GitHub
-1. 打开您的 GitHub 账号，创建一个新的公开仓库，例如命名为 `markdown-converter`。
-2. 在本地项目根目录初始化 Git 并将代码推送到您的 GitHub 仓库：
-   ```powershell
-   git init
-   git add .
-   git commit -m "Initialize markdown converter web app"
-   git branch -M main
-   git remote add origin https://github.com/<您的GitHub用户名>/markdown-converter.git
-   git push -u origin main
-   ```
-
-### 第二步：部署到 Streamlit Community Cloud
-1. 访问 [Streamlit Community Cloud 官网](https://share.streamlit.io/)。
-2. 使用您的 GitHub 账号授权登录。
-3. 点击页面右上角的 **"Create App"** 或 **"New app"**。
-4. 填写部署表单：
-   - **Repository**: 选择您的 `markdown-converter` 仓库。
-   - **Branch**: 选择 `main`。
-   - **Main file path**: 填写 `streamlit_app.py`。
-5. 点击 **"Deploy!"** 按钮。
-6. 等待几分钟，系统会自动完成环境构建和依赖安装。部署完成后，您将获得一个专属的公网链接（如 `https://xxx.streamlit.app`），即可在网上任意使用该工具！
+### 中文
+- **批量拖拽上传**：支持一次性拖拽上传多个不同类型的文件进行队列化批量转换。
+- **全格式支持**：
+  - **文档**：`.pdf` (电子版)、`.docx`、`.html`、`.txt`
+  - **表格转换**：`.xlsx`、`.xls`、`.csv`，智能识别表格并排版为整齐的 **Markdown 表格**。
+  - **幻灯片**：`.pptx` 提取文本。
+  - **音频识别**：`.mp3`、`.wav`，内置语音识别，自动将会议或录音转换为 **Markdown 文字纪要**。
+  - **其他**：`.json`、`.xml` 数据整理，`.zip` 压缩包自动解压并批量转换。
+- **双标签对照预览**：提供“渲染效果预览”和“Markdown 源码”双标签页对照，效果一目了然。
+- **打包一键下载**：支持单个文件单独下载，或点击 “📦 一键打包下载全部 (ZIP)”。
+- **开源安全**：完全透明的开源代码，不保留用户上传的文件，转换即用，安全可靠。
 
 ---
 
-## 🛠️ 技术栈
-- 网页框架：[Streamlit](https://streamlit.io/)
-- 转换内核：[Microsoft MarkItDown](https://github.com/microsoft/markitdown)
-- 音频转换/表格解析/文档转换等辅助依赖件见 `requirements.txt`。
+## 💻 Local Running / 本地运行
+
+```bash
+# 1. Clone the repository / 克隆仓库
+git clone https://github.com/adrianzhou20260105-max/markdown-converter.git
+cd markdown-converter
+
+# 2. Activate virtual environment (if using existing .venv) / 激活虚拟环境
+.venv\Scripts\activate
+
+# 3. Install dependencies / 安装依赖
+pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+# 4. Start the application / 启动应用
+streamlit run streamlit_app.py
+```
+
+---
+
+## 🚀 One-Click Cloud Deployment / 一键云端部署
+
+You can deploy your own instance of this app to Streamlit Community Cloud for free:
+1. Fork this repository.
+2. Go to [Streamlit Share](https://share.streamlit.io/) and click **"New app"**.
+3. Select your repository, set the branch to `main`, the main file path to `streamlit_app.py`, and click **"Deploy!"**.
+
+---
+
+## 🛠️ Credits & Tech Stack / 致谢与技术栈
+- Core Engine: [Microsoft MarkItDown](https://github.com/microsoft/markitdown)
+- Web Framework: [Streamlit](https://streamlit.io/)
