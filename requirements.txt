@@ -1,0 +1,15 @@
+streamlit>=1.35.0
+markitdown==0.1.5
+numpy
+pandas
+pillow
+pdfminer.six
+pdfplumber
+mammoth
+markdownify
+python-pptx
+openpyxl
+beautifulsoup4
+SpeechRecognition
+magika
+onnxruntime
