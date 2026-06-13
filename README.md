@@ -16,6 +16,29 @@ A web-based tool powered by Microsoft **MarkItDown** for converting files (PDF, 
 
 ---
 
+## 💡 How to Use / 使用说明
+
+### English
+1. **Upload Files**: Click on the upload box or drag and drop files (Word, Excel, PDF, Audio, etc.) onto the website.
+2. **Auto Convert**: The app will automatically convert each file using `markitdown` and show a progress bar.
+3. **Preview & Copy**: 
+   - Click a file name in the left panel to browse its content.
+   - Switch between **Rendered Preview** (how it looks formatted) and **Markdown Code** (raw markdown).
+4. **Download**: Click "Download Markdown File" to get the single file, or click "Download All (ZIP)" to download all files at once.
+
+### 中文
+1. **上传文件**：点击上传区域，或者直接将要转换的文件（Word、Excel、PDF、音频等）拖入网页中。
+2. **自动转换**：系统将自动在后台进行队列转换，并在网页上方显示处理进度。
+3. **对照预览**：
+   - 在左侧列表中选择您想查看的文件。
+   - 切换 **“👁️ 渲染效果预览”**（排版后的富文本）和 **“💻 Markdown 源码”** 进行对比或一键复制。
+4. **灵活下载**：
+   - 点击 **“下载当前 Markdown 文件”** 单独保存。
+   - 点击 **“📦 一键打包下载全部 (ZIP)”**，将所有转换成功的文件一次性打包下载。
+
+---
+
+
 ## 🌟 Features / 核心亮点
 
 ### English
